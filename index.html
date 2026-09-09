@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 Juego de Restas con Precios</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛒 ¡Restas en la Tienda! 💰</h1>
+            <p class="subtitle">Aprende restas con precios divertidos</p>
+        </div>
+
+        <div class="game-area">
+            <!-- Pantalla de inicio -->
+            <div id="pantalla-inicio" class="pantalla activa">
+                <div class="welcome-box">
+                    <h2>¡Bienvenido al Juego! 👋</h2>
+                    <p>Vas a ayudar a los niños en la tienda a restar precios.</p>
+                    <p>Escucharás un problema y deberás resolverlo.</p>
+                    <button class="boton-grande" onclick="iniciarJuego()">🎮 Comenzar Juego</button>
+                </div>
+            </div>
+
+            <!-- Pantalla del juego -->
+            <div id="pantalla-juego" class="pantalla">
+                <div class="score-board">
+                    <div class="puntos">
+                        <span>Puntos:</span>
+                        <strong id="puntos">0</strong>
+                    </div>
+                    <div class="pregunta-num">
+                        <span>Pregunta:</span>
+                        <strong id="pregunta-num">1/10</strong>
+                    </div>
+                </div>
+
+                <div class="problema-box">
+                    <div class="problema-visual">
+                        <div class="item-compra">
+                            <div class="precio-original">
+                                <span class="label">Precio:</span>
+                                <span class="valor" id="precio-original">$50</span>
+                            </div>
+                        </div>
+                        <div class="operacion">➖</div>
+                        <div class="item-compra">
+                            <div class="precio-descuento">
+                                <span class="label">Descuento:</span>
+                                <span class="valor" id="precio-descuento">$15</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="problema-texto">
+                        <p id="problema-texto">📝 Escucha el problema...</p>
+                    </div>
+
+                    <button class="boton-audio" onclick="reproducirProblema()">
+                        🔊 Escuchar de Nuevo
+                    </button>
+                </div>
+
+                <div class="respuestas-area">
+                    <label>¿Cuál es el resultado?</label>
+                    <div class="opciones-respuestas" id="opciones-respuestas">
+                        <!-- Se generan dinámicamente -->
+                    </div>
+                    <input type="number" id="respuesta-manual" placeholder="O escribe tu respuesta aquí" class="input-respuesta">
+                    <button class="boton-verificar" onclick="verificarRespuesta()">✓ Verificar</button>
+                </div>
+            </div>
+
+            <!-- Pantalla de fin -->
+            <div id="pantalla-fin" class="pantalla">
+                <div class="resultado-final">
+                    <h2 id="mensaje-final">🎉 ¡Muy Bien!</h2>
+                    <div class="puntos-finales">
+                        <p>Puntos conseguidos:</p>
+                        <h3 id="puntos-finales">0</h3>
+                    </div>
+                    <div class="retroalimentacion" id="retroalimentacion"></div>
+                    <button class="boton-grande" onclick="reiniciarJuego()">🔄 Jugar de Nuevo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
